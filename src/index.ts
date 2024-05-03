@@ -10,7 +10,7 @@ export const handler: Handler = async (event) => {
     const bucket = event.Records[0].s3.bucket.name;
     const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
 
-    console.log(`Updating lambda function ${functionName} from bucket ${bucket} with key ${key}`);
+    console.log(`Updating lambda function ${functionName} in region ${region} from bucket ${bucket} with key ${key}`);
 
     try {
         const updateCodeCommand = new UpdateFunctionCodeCommand({
