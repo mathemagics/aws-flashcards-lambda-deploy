@@ -2,8 +2,9 @@ import { LambdaClient, UpdateFunctionCodeCommand } from "@aws-sdk/client-lambda"
 import { Handler } from 'aws-lambda';
 
 const functionName = process.env.FUNCTION_NAME;
+const region = process.env.REGION_NAME;
 
-const lambdaClient = new LambdaClient({ region: "your-region" });
+const lambdaClient = new LambdaClient({ region });
 
 export const handler: Handler = async (event) => {
     const bucket = event.Records[0].s3.bucket.name;
