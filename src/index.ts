@@ -23,7 +23,7 @@ export const handler: Handler = async (event) => {
         console.log("Lambda function updated:", response);
         return response;
     } catch (err) {
-        const message = `Error updating lambda ${functionName} from bucket ${bucket}.`;
+        const message = `Error updating lambda ${functionName} from bucket ${bucket}. Error: ${err}`;
         throw new Error(message);
     }
 };
